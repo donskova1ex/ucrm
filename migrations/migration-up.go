@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"ucrm/internal/application"
+	"ucrm/internal/client_application"
+	"ucrm/internal/user"
 
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
@@ -30,7 +31,7 @@ func main() {
 
 	}
 
-	err = initTable(db, &application.Application{})
+	err = initTable(db, &client_application.Application{}, &user.User{})
 	log.Print("Successfully migrated")
 }
 

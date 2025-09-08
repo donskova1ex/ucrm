@@ -1,11 +1,11 @@
-package application
+package client_application
 
 import (
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
-type Application struct {
+type ClientApplication struct {
 	gorm.Model
 	UUID        *uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4();not null" json:"uuid"`
 	Email       string     `gorm:"not null; size:30" json:"email"`
