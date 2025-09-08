@@ -26,6 +26,8 @@ func (s *Slog) Info(ctx context.Context, message string, attrs ...slog.Attr) {
 	s.logger.InfoContext(ctx, message, attrs)
 }
 func (s *Slog) Error(ctx context.Context, message string, err error, attrs ...slog.Attr) {
-	attrs = append(attrs, slog.String("error", err.Error()))
+	if err != nil {
+		attrs = append(attrs, slog.String("error", err.Error()))
+	}
 	s.logger.ErrorContext(ctx, message, attrs)
 }
